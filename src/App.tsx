@@ -59,31 +59,32 @@ function App() {
   };
 
   return (
-    <div className="App min-h-screen bg-gray-100">
-      <div className="container mx-auto px-4 py-8">
-        <div className="text-center pb-12 md:pb-16">
-          <h1 className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">
-            GPT Prompt <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">Suggester</span>
-          </h1>
-          <div className="max-w-3xl mx-auto">
-            <p className="text-xl text-gray-600 mb-8" data-aos="zoom-y-out" data-aos-delay="150">
-              Enter your prompt and it will suggest a better prompt for you in an <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-red-400">instant</span>
-            </p>
-          </div>
+  <div className="App min-h-screen bg-gray-100">
+    <div className="container mx-auto px-4 py-8">
+      <div className="text-center pb-12 md:pb-16">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">
+          GPT Prompt <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">Suggester</span>
+        </h1>
+        <div className="max-w-3xl mx-auto">
+          <p className="text-md md:text-xl text-gray-600 mb-8" data-aos="zoom-y-out" data-aos-delay="150">
+            Enter your prompt and it will suggest a better prompt for you in an <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-red-400">instant</span>
+          </p>
         </div>
+      </div>
 
-        <div className="mb-8">
-          <ApiKeyInput apiKey={apiKey} onChange={handleApiKeyChange} />
-        </div>
-        <div className="main-content flex justify-center">
-          <div className="content flex-1 flex">
-            <PromptInput prompt={prompt} onChange={handlePromptChange} onSubmit={handleSubmit} />
-            <OutputBox suggestion={suggestion} />
-          </div>
+      <div className="mb-8">
+        <ApiKeyInput apiKey={apiKey} onChange={handleApiKeyChange} />
+      </div>
+      <div className="main-content flex flex-col md:flex-row justify-center">
+        <div className="content flex-1 flex flex-col md:flex-row">
+          <PromptInput prompt={prompt} onChange={handlePromptChange} onSubmit={handleSubmit} />
+          <OutputBox suggestion={suggestion} />
         </div>
       </div>
     </div>
-  );
+  </div>
+);
+
 }
 
 export default App;

@@ -9,7 +9,7 @@ interface PromptInputProps {
 const PromptInput: React.FC<PromptInputProps> = ({ prompt, onChange, onSubmit }) => {
   return (
     <div className="w-1/2">
-      <h2 className="text-xl font-semibold mb-4">Enter your prompt</h2>
+      <h2 className="text-xl font-semibold mb-4 text-center">Enter your prompt</h2>
       <textarea
         className="border border-black w-full h-48 p-2 mb-4 rounded-lg shadow"
         value={prompt}
