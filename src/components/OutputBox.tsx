@@ -7,7 +7,7 @@ interface OutputBoxProps {
 const OutputBox: React.FC<OutputBoxProps> = ({ suggestion }) => {
   return (
     <div className="w-1/2">
-      <h2 className="text-xl font-semibold mb-4">Suggested Prompt</h2>
+      <h2 className="text-xl font-semibold mb-4 text-center">Suggested Prompt</h2>
       <div className="border border-black w-full h-48 p-2 mb-4 rounded-lg shadow">
         {suggestion ? (
           <pre className="whitespace-pre-wrap">{suggestion}</pre>
