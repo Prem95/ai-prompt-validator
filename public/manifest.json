@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "GPT Prompt Suggester",
+  "name": "Enter your prompt and it will suggest a better prompt for you in an instant",
   "icons": [
     {
       "src": "favicon.ico",
