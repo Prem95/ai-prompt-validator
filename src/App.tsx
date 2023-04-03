@@ -6,9 +6,12 @@ import ApiKeyInput from './components/ApiKeyInput';
 import PromptInput from './components/PromptInput';
 import OutputBox from './components/OutputBox';
 import axios from 'axios';
-import { trackPageView } from './GoogleAnalytics';
+import { initGA, trackPageView } from './GoogleAnalytics';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { BrowserRouter, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+initGA('G-H5HZ0XPVSZ');
 
 const PageViewTracker: React.FC = () => {
   const location = useLocation();
@@ -25,6 +28,10 @@ function App() {
   const [prompt, setPrompt] = useState('');
   const [responses, setResponses] = useState<string[]>([]);
   const [suggestion, setSuggestion] = useState('');
+
+  useEffect(() => {
+    trackPageView(window.location.pathname + window.location.search);
+  }, []);
 
 
 
@@ -113,9 +120,10 @@ function App() {
 
   return (
   <div className="App min-h-screen bg-gray-100">
-    <div className="App min-h-screen bg-gray-100">
-      <PageViewTracker />
-    </div>
+
+    <Router>
+        <PageViewTracker />
+    </Router>
     <div className="container mx-auto px-4 py-8">
       <div className="text-center pb-12 md:pb-16">
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">
