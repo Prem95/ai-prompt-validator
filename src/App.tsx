@@ -6,12 +6,28 @@ import ApiKeyInput from './components/ApiKeyInput';
 import PromptInput from './components/PromptInput';
 import OutputBox from './components/OutputBox';
 import axios from 'axios';
+import { trackPageView } from './GoogleAnalytics';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+const PageViewTracker: React.FC = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    trackPageView(location.pathname + location.search);
+  }, [location]);
+
+  return null;
+};
 
 function App() {
   const [apiKey, setApiKey] = useState('');
   const [prompt, setPrompt] = useState('');
   const [responses, setResponses] = useState<string[]>([]);
   const [suggestion, setSuggestion] = useState('');
+
+
+
 
   const handleApiKeyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setApiKey(event.target.value);
@@ -97,6 +113,9 @@ function App() {
 
   return (
   <div className="App min-h-screen bg-gray-100">
+    <div className="App min-h-screen bg-gray-100">
+      <PageViewTracker />
+    </div>
     <div className="container mx-auto px-4 py-8">
       <div className="text-center pb-12 md:pb-16">
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">
