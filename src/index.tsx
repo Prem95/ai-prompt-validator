@@ -3,6 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { initGA, trackPageView } from './GoogleAnalytics';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+// Inside the App component
+const location = useLocation();
+
+useEffect(() => {
+  trackPageView(location.pathname + location.search);
+}, [location]);
+
+// Initialize Google Analytics
+initGA('G-H5HZ0XPVSZ');
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
